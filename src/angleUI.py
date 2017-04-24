@@ -143,6 +143,7 @@ note:
 
 				# draw p1-p2, p3-p4
 				plt.clf()
+
 				cv2.line(imgMid,tuple(self.p1),tuple(self.p2),(250,0,0),1)
 				cv2.line(imgMid,tuple(p3),tuple(p4),(0,250,0),1)
 				plt.imshow(imgMid)
@@ -156,6 +157,7 @@ note:
 				# draw the box: 
 				shift=w*midDir
 				w=np.abs(w)
+
 				p1_shift=self.p1+shift
 				p2_shift=self.p2+shift
 
@@ -186,6 +188,7 @@ note:
 
 					self.s= self.s +';\t'+str(label)+'\t'+str(cenP[0])+','+str(cenP[1])+'\t'+str(self.alpha*180./np.pi)+'\t'+str(rh)+'\t'+str(rw)
 
+
 					# modify imgSave: draw the latest box
 					cv2.line(self.imgSave,tuple(self.p1),tuple(self.p2),(250,0,0),1)
 					cv2.line(self.imgSave,tuple(self.p2),tuple(p2_shift),(250,0,0),1)
@@ -201,6 +204,7 @@ note:
 			self.fh.write(self.s)
 			self.fh.close()
 			self.s=''
+
 			self.fh=open(self.angleFile,'a+')
 
 			self.currentIdx +=1
